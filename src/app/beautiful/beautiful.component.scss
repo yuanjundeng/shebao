@@ -241,7 +241,8 @@ a:hover{
 .wrapper{
 	position: relative;
 	height: 100%;
-	padding-top: 80px;
+	// padding-top: 80px;
+  padding-top: 0px;
 	-moz-box-sizing: content-box;
     -webkit-box-sizing: content-box;
     -o-box-sizing: content-box;
@@ -288,7 +289,8 @@ a:hover{
 	position: relative;
 	zoom:1;
 	margin-left:250px;
-	padding: 30px 30px 220px;
+	// padding: 30px 30px 220px;
+  padding: 10px 30px 220px;
 	_height:780px;
 }
 .container .footer{
