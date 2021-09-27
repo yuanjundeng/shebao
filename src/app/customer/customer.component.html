@@ -1,0 +1,161 @@
+
+<style>
+    :host {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-size: 14px;
+      color: #333;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 8px 0;
+    }
+  
+    p {
+      margin: 0;
+    }
+  
+    .spacer {
+      flex: 1;
+    }
+  
+    .toolbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      background-color: #98e165;
+      color: white;
+      font-weight: 600;
+    }
+  
+    .toolbar img {
+      margin: 0 16px;
+    }
+  
+    .content {
+      display: flex;
+      margin: 82px auto 32px;
+      padding: 0 16px;
+      max-width: 960px;
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .config{
+      border-width: 1px;
+      border-color: #999999;
+    }
+    .item{
+      display: flex;
+      flex-direction: row;
+    }
+    .city-selector{
+      margin: 10px;
+  
+    }
+    .item-label{
+      margin: 10px;
+      width: 80px;
+    }
+    .center{
+      flex-direction: column;
+      align-items: center;
+    }
+    .button{
+      height: 36px;
+      width: 80px;
+      margin: 10px;
+      background-color: #4BAE4F;
+      border-radius: 5px;
+      border-color: transparent;
+      color: white;
+    }
+    .result{
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0
+    }
+    caption,th {
+      text-align: left;
+      
+    }
+  
+  </style>
+  
+  <!-- Toolbar -->
+  <div class="toolbar" role="banner">
+    <img
+      width="40"
+      alt="Angular Logo"
+      src="../assets/logo.jpg"
+    />
+    <span>Sandy社保计算器</span>
+      <div class="spacer"></div>
+  </div>
+  
+  <div class="content" role="main">
+    <!-- 输入社保配置 -->
+    <div class="config">
+      <div class="item">
+        <label class="item-label">参保城市</label>
+        <input class="city-selector" type="text" value="上海市"/>
+        <input class="city-selector" type="text" value="上海市"/>
+      </div>
+      <div class="item">
+        <label class="item-label">社保基数</label>
+        <input class="city-selector" type="text" placeholder="4927"/>
+        <div class="city-selector">（范围：4927 - 28017）</div>
+      </div>
+      <div class="item">
+        <label class="item-label">公积金基数</label>
+        <input class="city-selector" type="text" placeholder="2480"/>
+        <div class="city-selector">（范围：2480 - 28017）</div>
+      </div>
+      <div class="item center">
+        <button class="button">计算</button>
+      </div>
+    </div>
+    <!-- 社保结果 -->
+    <div class="result">
+      <div class="box">
+        <div class="table-outer">
+            <table border="1">
+                <caption>社会保险</caption>
+                <thead>
+                    <tr>
+                        <th rowspan="2">缴费项目</th>
+                        <th colspan="3">个人缴纳</th>
+                        <th colspan="3">企业缴纳</th>
+                        <th width="100" rowspan="2">小计</th>
+                    </tr>
+                    <tr>
+                        <th>基数</th>
+                        <th>缴费比例</th>
+                        <th>金额</th>
+                        <th>基数</th>
+                        <th>缴费比例</th>
+                        <th>金额</th>
+                    </tr>
+                </thead>
+                <tfoot id="insureTfoot"><tr>                <td>&nbsp;</td>                <td colspan="3">个人缴纳：<span class="text-red">517.34</span></td>                <td colspan="3">公司缴纳：<span class="text-red">1318.27</span></td>                <td>合计：<span class="text-red">1835.6</span></td>            </tr></tfoot>
+                <tbody id="insureTbody"><tr>                    <td>养老保险</td>                    <td>4927</td>                    <td>8%</td>                    <td><span class="text-blue">394.16</span></td>                    <td>4927</td>                    <td>16%</td>                    <td><span class="text-blue">788.32</span></td>                    <td><span class="text-blue">1182.48</span></td>                </tr><tr>                    <td>工伤保险</td>                    <td>4927</td>                    <td>0%</td>                    <td><span class="text-blue">0</span></td>                    <td>4927</td>                    <td>0.26%</td>                    <td><span class="text-blue">12.61</span></td>                    <td><span class="text-blue">12.61</span></td>                </tr><tr>                    <td>失业保险</td>                    <td>4927</td>                    <td>0.5%</td>                    <td><span class="text-blue">24.64</span></td>                    <td>4927</td>                    <td>0.5%</td>                    <td><span class="text-blue">24.64</span></td>                    <td><span class="text-blue">49.27</span></td>                </tr><tr>                    <td>生育保险</td>                    <td>4927</td>                    <td>0%</td>                    <td><span class="text-blue">0</span></td>                    <td>4927</td>                    <td>0%</td>                    <td><span class="text-blue">0</span></td>                    <td><span class="text-blue">0</span></td>                </tr><tr>                    <td>医疗保险</td>                    <td>4927</td>                    <td>2%</td>                    <td><span class="text-blue">98.54</span></td>                    <td>4927</td>                    <td>10%</td>                    <td><span class="text-blue">492.7</span></td>                    <td><span class="text-blue">591.24</span></td>                </tr></tbody>
+            </table>
+        </div>
+    </div>
+      
+  
+    </div>
+  
+  </div>
