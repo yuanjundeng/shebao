@@ -8286,7 +8286,7 @@ export const dataList =[
                             "uConstant":0
                         },
                         {
-                            "name":"生育保险+医疗保险(合并)",
+                            "name":"生育+医疗保险",
                             "cMax":31014,
                             "cMin":5975,
                             "cRatio":0.105,

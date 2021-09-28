@@ -53,42 +53,58 @@
                             <div class="table-outer">
                                 <table>
                                     <caption>社会保险</caption>
+                                    <!-- 个人缴纳 -->
                                     <thead>
                                         <tr>
                                             <th rowspan="2">缴费项目</th>
                                             <th colspan="3">个人缴纳</th>
-                                            <th colspan="3">企业缴纳</th>
-                                            <th width="100" rowspan="2">小计</th>
                                         </tr>
                                         <tr>
-                                            <th>基数</th>
-                                            <th>缴费比例</th>
-                                            <th>金额</th>
                                             <th>基数</th>
                                             <th>缴费比例</th>
                                             <th>金额</th>
                                         </tr>
                                     </thead>
-                                    <tfoot id="insureTfoot">
-                                      <tr>
-                                        <td>&nbsp;</td>
-                                        <td colspan="3">个人缴纳：<span class="text-red">{{getInsureUserTotal(currCityStandard.insure[0].list,true).toFixed(2)}}</span></td>
-                                        <td colspan="3">公司缴纳：<span class="text-red">{{getInsureCompanyTotal(currCityStandard.insure[0].list,true).toFixed(2)}}</span></td>
-                                        <td>合计：<span class="text-red">{{(userInsureTotal+companyInsureTotal).toFixed(2)}}</span></td>
-                                      </tr>
-                                    </tfoot>
                                     <tbody id="insureTbody">
                                       <tr *ngFor="let item of currCityStandard.insure[0].list;let i=index;">
                                         <td>{{item.name}}</td>
                                         <td>{{getInsureConfig(item,1).toFixed(2)}}</td>
                                         <td>{{(item['uRatio']*100).toFixed(2)+'%'}}</td>
                                         <td><span class="text-blue">{{getInsureConfig(item,2).toFixed(2)}}</span></td>
-                                        <td>{{getInsureConfig(item,3).toFixed(2)}}</td>
-                                        <td>{{(item['cRatio']*100).toFixed(2)+'%'}}</td>
-                                        <td><span class="text-blue">{{getInsureConfig(item,4).toFixed(2)}}</span></td>
-                                        <td><span class="text-blue">{{getInsureConfig(item,5).toFixed(2)}}</span></td>
                                       </tr>
                                     </tbody>
+                                    <!-- 企业缴纳 -->
+                                    <thead>
+                                      <tr>
+                                          <th rowspan="2">缴费项目</th>
+                                          <th colspan="3">企业缴纳</th>
+                                      </tr>
+                                      <tr>
+                                          <th>基数</th>
+                                          <th>缴费比例</th>
+                                          <th>金额</th>
+                                      </tr>
+                                  </thead>
+                                  <tfoot id="insureTfoot">
+                                    <tr>
+                                      <td rowspan="3">汇总</td>
+                                      <td colspan="3">个人缴纳：<span class="text-red">{{getInsureUserTotal(currCityStandard.insure[0].list,true).toFixed(2)}}</span></td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="3">公司缴纳：<span class="text-red">{{getInsureCompanyTotal(currCityStandard.insure[0].list,true).toFixed(2)}}</span></td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="3">合计：<span class="text-red">{{(userInsureTotal+companyInsureTotal).toFixed(2)}}</span></td>
+                                    </tr>
+                                  </tfoot>
+                                  <tbody id="insureTbody">
+                                    <tr *ngFor="let item of currCityStandard.insure[0].list;let i=index;">
+                                      <td>{{item.name}}</td>
+                                      <td>{{getInsureConfig(item,3).toFixed(2)}}</td>
+                                      <td>{{(item['cRatio']*100).toFixed(2)+'%'}}</td>
+                                      <td><span class="text-blue">{{getInsureConfig(item,4).toFixed(2)}}</span></td>
+                                    </tr>
+                                  </tbody>
                                 </table>
                             </div>
                         </div>
@@ -96,42 +112,59 @@
                             <div class="table-outer">
                                 <table>
                                     <caption>住房公积金</caption>
+                                    <!-- 个人缴纳 -->
                                     <thead>
                                         <tr>
                                             <th rowspan="2">缴费项目</th>
                                             <th colspan="3">个人缴纳</th>
-                                            <th colspan="3">企业缴纳</th>
-                                            <th width="100" rowspan="2">小计</th>
                                         </tr>
                                         <tr>
-                                            <th>基数</th>
-                                            <th>缴费比例</th>
-                                            <th>金额</th>
                                             <th>基数</th>
                                             <th>缴费比例</th>
                                             <th>金额</th>
                                         </tr>
                                     </thead>
-                                    <tfoot id="fundTfoot">
-                                      <tr>
-                                        <td>&nbsp;</td>
-                                        <td colspan="3">个人缴纳：<span class="text-red">{{getInsureUserTotal(currCityStandard.fund[0].list,false).toFixed(2)}}</span></td>
-                                        <td colspan="3">公司缴纳：<span class="text-red">{{getInsureCompanyTotal(currCityStandard.fund[0].list,false).toFixed(2)}}</span></td>
-                                        <td>合计：<span class="text-red">{{(userInsureTotal+companyInsureTotal).toFixed(2)}}</span></td>
-                                      </tr>
-                                    </tfoot>
                                     <tbody id="fundTbody">
                                       <tr *ngFor="let item of currCityStandard.fund[0].list;let i=index;">
                                         <td>{{item.name}}</td>
                                         <td>{{getInsureConfig(item,1).toFixed(2)}}</td>
                                         <td>{{(item['uRatio']*100).toFixed(2)+'%'}}</td>
                                         <td><span class="text-blue">{{getInsureConfig(item,2).toFixed(2)}}</span></td>
-                                        <td>{{getInsureConfig(item,3).toFixed(2)}}</td>
-                                        <td>{{(item['cRatio']*100).toFixed(2)+'%'}}</td>
-                                        <td><span class="text-blue">{{getInsureConfig(item,4).toFixed(2)}}</span></td>
-                                        <td><span class="text-blue">{{getInsureConfig(item,5).toFixed(2)}}</span></td>
                                       </tr>
                                     </tbody>
+                                    <!-- 企业缴纳 -->
+                                    <thead>
+                                      <tr>
+                                          <th rowspan="2">缴费项目</th>
+                                          <th colspan="3">企业缴纳</th>
+                                          <!-- <th width="100" rowspan="2">小计</th> -->
+                                      </tr>
+                                      <tr>
+                                          <th>基数</th>
+                                          <th>缴费比例</th>
+                                          <th>金额</th>
+                                      </tr>
+                                  </thead>
+                                  <tfoot id="fundTfoot">
+                                    <tr>
+                                      <td rowspan="3">汇总</td>
+                                      <td colspan="3">个人缴纳：<span class="text-red">{{getInsureUserTotal(currCityStandard.fund[0].list,false).toFixed(2)}}</span></td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="3">公司缴纳：<span class="text-red">{{getInsureCompanyTotal(currCityStandard.fund[0].list,false).toFixed(2)}}</span></td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="3">合计：<span class="text-red">{{(userInsureTotal+companyInsureTotal).toFixed(2)}}</span></td>
+                                    </tr>
+                                  </tfoot>
+                                  <tbody id="fundTbody">
+                                    <tr *ngFor="let item of currCityStandard.fund[0].list;let i=index;">
+                                      <td>{{item.name}}</td>
+                                      <td>{{getInsureConfig(item,3).toFixed(2)}}</td>
+                                      <td>{{(item['cRatio']*100).toFixed(2)+'%'}}</td>
+                                      <td><span class="text-blue">{{getInsureConfig(item,4).toFixed(2)}}</span></td>
+                                    </tr>
+                                  </tbody>
                                 </table>
                             </div>
                         </div>
