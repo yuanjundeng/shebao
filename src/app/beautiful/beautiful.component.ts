@@ -41,10 +41,10 @@ export class BeautifulComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    let str="name";
-    console.log(this.dataList);
-    let person=new Person("我的名字");
-    console.log(Object.getOwnPropertyDescriptor(person,str)?.value);
+    // let str="name";
+    // console.log(this.dataList);
+    // let person=new Person("我的名字");
+    // console.log(Object.getOwnPropertyDescriptor(person,str)?.value);
   }
   /**
    * 选择省份
